@@ -31,8 +31,15 @@ theme_agnoster() {
     tmux set-option -g status-right-length 150
 }
 
+use_fish() {
+    if command -v fish >/dev/null; then
+        tmux set-option -g default-shell $(which fish)
+    fi
+}
+
 main() {
     theme_agnoster
+    use_fish
 }
 
 main
